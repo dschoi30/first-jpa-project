@@ -18,6 +18,9 @@ public class Member {
     @Column(name = "name", nullable = false)
     private String username;
 
+    @ManyToOne
+    private Team team;
+
     public Member() {}
 
     public Long getId() {
@@ -34,5 +37,13 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

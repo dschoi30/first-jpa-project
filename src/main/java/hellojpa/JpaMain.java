@@ -52,21 +52,35 @@ public class JpaMain {
 //
 //            System.out.println("=========");
 
-            Member member1 = new Member();
-            member1.setUsername("A");
-            Member member2 = new Member();
-            member2.setUsername("B");
-            Member member3 = new Member();
-            member3.setUsername("C");
+//            Member member1 = new Member();
+//            member1.setUsername("A");
+//            Member member2 = new Member();
+//            member2.setUsername("B");
+//            Member member3 = new Member();
+//            member3.setUsername("C");
+//
+//            System.out.println("==============");
+//            em.persist(member1);
+//            em.persist(member2);
+//            em.persist(member3);
+//            System.out.println("member = " + member1.getId());
+//            System.out.println("member = " + member2.getId());
+//            System.out.println("member = " + member3.getId());
+//            System.out.println("==============");
 
-            System.out.println("==============");
-            em.persist(member1);
-            em.persist(member2);
-            em.persist(member3);
-            System.out.println("member = " + member1.getId());
-            System.out.println("member = " + member2.getId());
-            System.out.println("member = " + member3.getId());
-            System.out.println("==============");
+//            Team teamA = new Team();
+//            teamA.addMember(member1);
+
+            Member member = new Member();
+            member.setUsername("member1");
+
+            em.persist(member);
+
+            Team team = new Team();
+            team.setName("teamA");
+            team.getMembers().add(member);
+
+            em.persist(team);
 
             tx.commit();
         } catch (Exception e) {
