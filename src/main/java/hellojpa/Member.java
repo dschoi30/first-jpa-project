@@ -1,6 +1,7 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @SequenceGenerator(
@@ -8,7 +9,7 @@ import javax.persistence.*;
         sequenceName = "MEMBER_SEQ",
         initialValue = 1, allocationSize = 50
 )
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
@@ -20,6 +21,10 @@ public class Member {
 
     @ManyToOne
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
 
     public Member() {}
 
