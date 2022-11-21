@@ -19,12 +19,9 @@ public class Member extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String username;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private Team team;
-
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
 
     public Member() {}
 
